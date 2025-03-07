@@ -14,7 +14,7 @@ if (!process.env.JWT_SECRET) {
 
 const registerUser = async (req, res) => {
     try {
-        const { name, email, password, role } = req.body;
+        const { name, email, password,wallet_address,role } = req.body;
 
         // Check if user already exists
         const existingUser = await User.findOne({ email });
@@ -30,10 +30,10 @@ const registerUser = async (req, res) => {
 
         // Create role-specific document
         if (role === "Student") {
-            roleDoc = new Student({ certificate: "none" });
+            roleDoc = new Student({ portfolio_token_id: null, badges: [] });
             roleModel = "Student";
         } else if (role === "College") {
-            roleDoc = new College();
+            roleDoc = new College({ college_name: name });
             roleModel = "College";
         } else {
             return res.status(400).json({ message: "Invalid role" });
@@ -46,6 +46,7 @@ const registerUser = async (req, res) => {
             name,
             email,
             password: hashedPassword,
+            wallet_address,
             role: roleDoc._id,
             roleModel,
         });
