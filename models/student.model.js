@@ -44,7 +44,7 @@ import mongoose from 'mongoose';
 const badgeSchema = new mongoose.Schema({
   badge_token_id: { type: Number, required: true },
   metadata_uri: { type: String, required: true }
-})
+},{timestamps:true});
 
 const Badge = mongoose.model('Badge', badgeSchema);
 
@@ -56,7 +56,7 @@ const studentSchema = new mongoose.Schema({
     ref: 'Badge'
   }],
   created_at: { type: Date, default: Date.now }
-});
+},{timestamps:true});
 
 const Student = mongoose.model('Student', studentSchema);
 
