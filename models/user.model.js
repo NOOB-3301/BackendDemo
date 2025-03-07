@@ -8,7 +8,10 @@ const userSchema = new mongoose.Schema({
   email: {
     type: String,
     required: true,
+    unique:true
   },
+  wallet_address: { type: String, unique: true } // For adding WEB3 Wallet
+  ,
   password: {
     type: String,
     required: true,
