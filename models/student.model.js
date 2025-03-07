@@ -45,10 +45,19 @@ const badgeSchema = new mongoose.Schema({
   badge_token_id: { type: Number, required: true },
   metadata_uri: { type: String, required: true }
 })
+
+const Badge = mongoose.model('Badge', badgeSchema);
+
+
 const studentSchema = new mongoose.Schema({
   portfolio_token_id: { type: Number, default: null },
-  badges: [badgeSchema],
+  badges: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Badge'
+  }],
   created_at: { type: Date, default: Date.now }
 });
 
-export const Student = mongoose.model('Student', studentSchema);
+const Student = mongoose.model('Student', studentSchema);
+
+export { Student, Badge };
