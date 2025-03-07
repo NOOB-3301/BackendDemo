@@ -1,26 +1,28 @@
-// This is certificate model or badge model
+// // This is certificate model or badge model
 
-import mongoose from "mongoose";
+// import mongoose from "mongoose";
 
-const certSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: true,
-  },
-  studentModel: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Student",
-  },
-  collegeModel: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "College",
-  },
-  certificate: {
-    type: String,
-    required: true,
-  }
-}, {timestamps: true}); 
+//not needed !
 
-const Cert = mongoose.model("Cert", certSchema);    
+// const certSchema = new mongoose.Schema({
+//   name: {
+//     type: String,
+//     required: true,
+//   },
+//   studentModel: {
+//     type: mongoose.Schema.Types.ObjectId,
+//     ref: "Student",
+//   },
+//   collegeModel: {
+//     type: mongoose.Schema.Types.ObjectId,
+//     ref: "College",
+//   },
+//   certificate: {
+//     type: String,
+//     required: true,
+//   }
+// }, {timestamps: true}); 
 
-export {Cert};
+// const Cert = mongoose.model("Cert", certSchema);    
+
+// export {Cert};
