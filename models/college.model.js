@@ -1,19 +1,29 @@
-import mongoose from "mongoose";
+// import mongoose from "mongoose";
+
+// const collegeSchema = new mongoose.Schema({
+//     students: [{
+//         type: mongoose.Schema.Types.ObjectId,
+//         ref: "Student"
+//     }],
+//     walletAdd:{
+//         type: String,
+//     },
+//     userModel:{
+//         type: mongoose.Schema.Types.ObjectId,
+//         ref: "User"
+//     }
+// }, {timestamp: true});
+
+// const College = mongoose.model("College", collegeSchema);
+
+// export {College};
+
+
+import mongoose from 'mongoose';
 
 const collegeSchema = new mongoose.Schema({
-    students: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Student"
-    }],
-    walletAdd:{
-        type: String,
-    },
-    userModel:{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "User"
-    }
-}, {timestamp: true});
+  college_name: { type: String, required: true }, 
+  created_at: { type: Date, default: Date.now }
+});
 
-const College = mongoose.model("College", collegeSchema);
-
-export {College};
+export const College = mongoose.model('College', collegeSchema);

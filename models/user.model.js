@@ -16,11 +16,7 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  role:{
-    type: mongoose.Schema.Types.ObjectId,
-    refpath: "roleModel",
-    required: true
-  },
+  role: { type: mongoose.Schema.Types.ObjectId, refPath: 'roleModel', required: true },
   roleModel:{
     type: String,
     required: true,
