@@ -55,7 +55,6 @@ const studentSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Badge'
   }],
-  created_at: { type: Date, default: Date.now }
 },{timestamps:true});
 
 const Student = mongoose.model('Student', studentSchema);
